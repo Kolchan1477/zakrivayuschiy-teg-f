@@ -327,10 +327,6 @@
   display: block;
 }
 
-.like-icon.is-liked {
-  color: #ff0000;
-}
-
 /* Кнопка Like */
 .card__like-button {
   width: 130px;
