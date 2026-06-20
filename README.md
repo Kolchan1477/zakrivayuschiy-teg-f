@@ -4,7 +4,7 @@
 
 ## 🚀 Ссылка на проект 
 
-[Открыть страницу](https://kolchan1477.github.io/zakrivayuschiy-teg-f/)
+[Открыть страницу](https://github.com/Kolchan1477/zakrivayuschiy-teg-f)
 
 ---
 
