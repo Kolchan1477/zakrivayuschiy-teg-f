@@ -9,3 +9,164 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+/* ===== СЕРДЕЧКО ===== */
+
+/* ----- Базовые состояния ----- */
+.like-icon {
+  transform-origin: center;
+}
+
+/* Сердце — масштабируется от центра */
+.like-icon .heart {
+  transform-origin: center;
+}
+
+/* Контур — чёрный, быстрый переход */
+.like-icon .contour {
+  fill: var(--contour-color, #000000);
+  transition: fill 0.1s linear 0s;
+}
+
+/* Сердцевина — прозрачная, переход с задержкой */
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s linear 0.03s;
+}
+
+/* Основное тело — прозрачное, переход без задержки */
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear 0s;
+}
+
+/* Искры — скрыты по умолчанию */
+.like-icon .sparks {
+  opacity: 0;
+}
+
+/* Точки-блики — скрыты по умолчанию */
+.like-icon .highlight {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+/* ===== СОСТОЯНИЕ HOVER (наведение) ===== */
+
+/* Сердцевина — становится чёрной без задержки */
+.like-icon:hover .core {
+  fill: var(--contour-color, #000000);
+  transition: fill 0.3s linear 0s;
+}
+
+/* Основное тело — становится чёрным с задержкой 0.05s */
+.like-icon:hover .main-body {
+  fill: var(--contour-color, #000000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* Точки-блики — появляются при наведении */
+.like-icon:hover .highlight {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+/* ===== СОСТОЯНИЕ ACTIVE (зажатие) ===== */
+
+/* Сердцевина — появляется красной без задержки */
+.like-icon:active .core {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear 0s;
+}
+
+/* Основное тело — становится красным с задержкой 0.05s */
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* ===== СОСТОЯНИЕ IS-LIKED (лайк) ===== */
+
+/* Сердцевина — становится красной */
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear 0s;
+}
+
+/* Основное тело — становится красным с задержкой 0.05s */
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* Контур — становится красным с задержкой 0.06s */
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear 0.06s;
+}
+
+/* Точки-блики — появляются */
+.like-icon.is-liked .highlight {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+/* Сердце — масштабируется с задержкой 0.1s */
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s forwards;
+}
+
+/* Искры (брызги) — появляются и исчезают */
+.like-icon.is-liked .sparks {
+  animation: sparks-appear 0.3s ease-in 0.3s forwards;
+}
+
+/* ===== КНОПКА-ОБЁРТКА СЕРДЕЧКА ===== */
+
+/* Ховер на кнопке — увеличение сердечка */
+.card__icon-button:hover .like-icon {
+  animation: heart-hover 0.3s ease-in-out infinite alternate;
+}
+
+/* Нажатие на кнопку — уменьшение сердечка */
+.card__icon-button:active .like-icon {
+  transform: scale(0.9);
+}
+
+/* ===== КЛЮЧЕВЫЕ КАДРЫ ===== */
+
+/* Масштабирование сердца при hover */
+@keyframes heart-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Масштабирование сердца при клике */
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Появление искр */
+@keyframes sparks-appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
