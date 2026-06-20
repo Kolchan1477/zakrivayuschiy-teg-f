@@ -10,21 +10,19 @@
 
 */
 
-
 /* Основные стили для страницы */
 .page {
-  
   min-inline-size: 320px;
   min-block-size: 100dvb;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--main-font);
-  font-variation-settings: 'wght' var(--text-weight);
+  font-variation-settings: "wght" var(--text-weight);
   padding: 0;
   /* Фон из трёх градиентов */
   background-image: var(--page-bg-gradient);
   background-size: cover;
-  background-attachment: fixed;  /* фон фиксирован при прокрутке */
+  background-attachment: fixed; /* фон фиксирован при прокрутке */
   background-repeat: no-repeat;
 }
 
@@ -42,17 +40,13 @@
   align-items: center;
 }
 
-
 /* Фоновое изображение на всю ширину страницы */
 
 /* Шапка */
 .header {
   width: var(--container-width);
   height: clamp(327px, 40vw, 368px);
-  
-  
-  
-  
+
   margin: 100px auto 98px auto;
   background-color: #ffffff;
   border: 2px solid var(--border-color, #000000);
@@ -65,7 +59,7 @@
 .header__container {
   width: 100%;
   height: 100%;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,8 +94,6 @@
   letter-spacing: 0;
 }
 
-
-
 /* Карточка спринта */
 .card {
   width: var(--container-width);
@@ -118,10 +110,9 @@
 .card__header {
   width: 100%;
   max-width: 696px;
-  
-  
+
   min-height: 32px;
-  
+
   padding: 5px 16px;
   margin: 0;
   display: flex;
@@ -136,29 +127,26 @@
 .card__title {
   width: 676px;
   height: auto;
-  
+
   font-family: var(--main-font);
   font-size: 18px;
   font-weight: 700;
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: "wght" 700;
   line-height: 1.3;
   color: #000000;
   padding: 0;
   margin: 0 -10px;
-  
+
   letter-spacing: -0.1px;
-  
+
   /* border-bottom перенесён в .card__header, если нужен */
 }
-
-
-
 
 /* Контейнер с изображением */
 .card__svg-wrapper {
   position: relative;
   width: 100%;
-  
+
   margin: 0 0 20px;
   padding: 0;
   overflow: hidden;
@@ -173,9 +161,7 @@
   aspect-ratio: 1 / 1;
   display: block;
   object-fit: cover;
-  
 }
-
 
 /* Тег <HTML> поверх изображения */
 .card__image-html {
@@ -189,24 +175,24 @@
   text-transform: uppercase;
   color: #000000;
   background: transparent;
-  
+
   /* Прозрачность */
   opacity: 0.9;
-  
+
   /* Режим смешивания */
   mix-blend-mode: hard-light;
-  
+
   /* Белая обводка через text-stroke (с поддержкой) */
   -webkit-text-stroke: 1px var(--html-stroke-color, #ffffff);
   text-stroke: 1px var(--html-stroke-color, #ffffff);
-  
+
   /* Фоллбэк через text-shadow (если text-stroke не поддерживается) */
-  text-shadow: 
+  text-shadow:
     -1px -1px 0 var(--html-stroke-color, #ffffff),
     1px -1px 0 var(--html-stroke-color, #ffffff),
     -1px 1px 0 var(--html-stroke-color, #ffffff),
     1px 1px 0 var(--html-stroke-color, #ffffff);
-  
+
   white-space: nowrap;
 }
 
@@ -255,36 +241,33 @@
 
 /* Финальная карточка: осознание — яркий и чёткий */
 .card__image--final {
-  filter: contrast(1.3) saturate(1.4) brightness(1.1) drop-shadow(0 0 10px rgba(255, 0, 0, 0.2));
+  filter: contrast(1.3) saturate(1.4) brightness(1.1)
+    drop-shadow(0 0 10px rgba(255, 0, 0, 0.2));
 }
-
 
 /* Контент (текст, блок воспоминаний) */
 .card__content {
   width: 646px;
-  padding:0;
+  padding: 0;
   display: flex;
   margin: 0 25px;
   flex-direction: column;
-  gap: 25px;  /* расстояние между элементами внутри контента */
+  gap: 25px; /* расстояние между элементами внутри контента */
 }
 
 /* Текст */
 .card__text {
-  font-family: var(--main-font, 'Inter', 'Arial', sans-serif);
+  font-family: var(--main-font, "Inter", "Arial", sans-serif);
   font-weight: 410;
-  font-variation-settings: 'wght' 410;
+  font-variation-settings: "wght" 410;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: -0.1px;
   width: 646px;
-  
-  
+
   color: var(--text-color, #000000);
   margin: 0;
 }
-
-
 
 /* Блок воспоминаний */
 .card__memory {
@@ -295,14 +278,14 @@
 
 /* Лейбл воспоминаний */
 .card__memory-label {
-  font-family: var(--main-font, 'Inter', 'Arial', sans-serif);
+  font-family: var(--main-font, "Inter", "Arial", sans-serif);
   font-weight: 410;
-  font-variation-settings: 'wght' 410;
+  font-variation-settings: "wght" 410;
   font-size: 18px;
   line-height: 21px;
-  
+
   letter-spacing: -0.2px;
-  
+
   color: var(--text-color, #000000);
   margin: 0;
 }
@@ -311,9 +294,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 12px;  /* расстояние между сердечком и кнопкой */
+  gap: 12px; /* расстояние между сердечком и кнопкой */
   padding: 25px;
-  
+
   margin-top: 0;
 }
 
@@ -364,7 +347,6 @@
   display: inline-block;
 }
 
-
 /* ===== Кнопка "Сохранить на память" ===== */
 .card__save-button {
   display: flex;
@@ -378,22 +360,24 @@
   background: none;
   border: 2px solid var(--border-color, #000000);
   cursor: pointer;
-  background-color: #ffffff; 
-  
+  background-color: #ffffff;
+
   /* Шрифт из макета */
-  font-family: var(--accent-font, 'Press Start 2P', monospace);
+  font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
   letter-spacing: 0%;
   color: var(--text-color, #000000);
-  
-  transition: all 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
   box-sizing: border-box;
   white-space: nowrap;
 }
-
-
 
 .card__save-button:active {
   transform: scale(0.97);
@@ -417,7 +401,7 @@
   width: 353px;
   height: 191px;
   padding: 0;
-  
+
   border: 2px solid var(--border-color, #000000);
   background-color: var(--bg-color, #ffffff);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -468,14 +452,14 @@
 }
 
 .dialog__title {
-  font-family: var(--accent-font, 'Press Start 2P', monospace);
+  font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
   text-transform: uppercase;
   color: var(--text-color, #000000);
   margin: 0;
-  
+
   text-align: left;
   white-space: pre-line;
 }
@@ -490,12 +474,16 @@
   background: none;
   border: 2px solid var(--border-color, #000000);
   cursor: pointer;
-  font-family: var(--accent-font, 'Press Start 2P', monospace);
+  font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
   color: var(--text-color, #000000);
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
   box-sizing: border-box;
 }
 
@@ -554,7 +542,7 @@
   color: #000000;
   border: 2px solid var(--border-color, #000000);
   cursor: pointer;
-  font-family: var(--accent-font, 'Press Start 2P', monospace);
+  font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
@@ -565,7 +553,6 @@
 /* Текст и иконки поверх псевдоэлемента — ОБЯЗАТЕЛЬНО с difference */
 .card__like-button .button__text,
 .card__save-button .save-button__text,
-
 .dialog__button .dialog__button-text {
   position: relative;
   z-index: 1;
@@ -585,7 +572,7 @@
 .card__like-button::before,
 .card__save-button::before,
 .dialog__button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -611,10 +598,7 @@
   color: #ffffff;
   mix-blend-mode: difference;
 }
-.dialog__button:hover .dialog__button-text {
-  color: #ffffff;
-  mix-blend-mode: difference;
-}
+
 .card__save-button:hover .save-icon {
   filter: brightness(0) invert(1);
 }
@@ -660,7 +644,6 @@
     gap: 50px;
     padding: 0;
     width: 100%;
-    
   }
 
   /* ---------- ШАПКА ---------- */
@@ -696,7 +679,7 @@
     font-weight: 400;
     font-size: 49px;
     line-height: 100%;
-    
+
     text-transform: uppercase;
   }
 
@@ -711,16 +694,16 @@
   /* ---------- КАРТОЧКИ ---------- */
   .card {
     width: 100%;
-    
+
     border-radius: 0;
   }
 
   .card__header {
-    height: auto;          /* убираем фиксированную высоту */
-    max-height: 52px;     /* убираем ограничение */
-    min-height: 32px;      /* оставляем минимум */
+    height: auto; /* убираем фиксированную высоту */
+    max-height: 52px; /* убираем ограничение */
+    min-height: 32px; /* оставляем минимум */
     padding: 0 16px;
-    overflow: visible;     /* чтобы текст не обрезался */
+    overflow: visible; /* чтобы текст не обрезался */
   }
 
   .card__title {
@@ -728,9 +711,9 @@
     height: auto;
     width: 100%;
     margin: 0 -10px;
-    white-space: normal;   /* разрешаем перенос */
-    overflow: visible;     /* текст не обрезается */
-    text-overflow: unset;  /* убираем многоточие */
+    white-space: normal; /* разрешаем перенос */
+    overflow: visible; /* текст не обрезается */
+    text-overflow: unset; /* убираем многоточие */
     line-height: 1.4;
   }
 
@@ -738,25 +721,19 @@
   .card__svg-wrapper {
     width: 100%;
     margin: 0;
-    
-    
-    
+
     border-top: 2px solid var(--border-color);
     border-bottom: 2px solid var(--border-color);
-    
   }
 
   .card__heading-svg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
   }
 
   /* ---------- ТЕГ HTML НА ИЗОБРАЖЕНИИ ---------- */
   .card__image-html {
-    
-    
     -webkit-text-stroke: 0.5px var(--html-stroke-color, #ffffff);
     text-stroke: 0.5px var(--html-stroke-color, #ffffff);
   }
@@ -810,15 +787,13 @@
     padding: 0;
     gap: 12px;
     margin: 0 25px 25px 0;
-    
   }
 
   .card__like-button {
     width: 130px;
-    
+
     padding: 6px 12px;
     margin: 0 0 0 0;
-    
   }
 
   .like-icon {
@@ -839,7 +814,6 @@
     height: 84px;
     margin: 50px auto 20px auto;
     padding: 0;
-    
   }
 
   .save-icon {
@@ -848,7 +822,6 @@
     flex-shrink: 0;
     color: currentColor;
     display: block;
-    
   }
   .save-button__text {
     display: inline-block;
@@ -861,7 +834,7 @@
   }
 
   /* ---------- КНОПКИ НА МОБИЛКЕ ---------- */
-  
+
   /* Отключаем псевдоэлементы с анимацией, которые работают на десктопе */
   .card__like-button::before,
   .card__save-button::before,
@@ -918,6 +891,4 @@
     animation: heart-pop 0.3s ease-in-out;
     color: #ff0000;
   }
-
 }
-
