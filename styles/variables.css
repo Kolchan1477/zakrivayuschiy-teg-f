@@ -19,7 +19,7 @@
 
   /* Резиновые размеры */
   --container-width: clamp(320px, 100%, 700px);
-  --header-html-font-size: clamp(49px, 8vw, 65px);;
+  --header-html-font-size: clamp(49px, 8vw, 65px);
   --header-tag-font-size: clamp(14px, 3.7vw, 23px);
   --header-logo-gap: clamp(10px, 3vw, 20px);
 
