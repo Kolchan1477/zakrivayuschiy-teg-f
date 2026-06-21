@@ -262,7 +262,69 @@
 
   margin-top: 0;
 }
+/* ===== ОБЩИЙ КЛАСС ДЛЯ ВСЕХ КНОПОК ===== */
 
+.button {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--button-bg-color, #ffffff);
+  color: #000000;
+  border: 2px solid var(--border-color, #000000);
+  cursor: pointer;
+  font-family: var(--accent-font, "Press Start 2P", monospace);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.button .button__text,
+.button .save-button__text,
+.button .dialog__button-text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #ffffff;
+}
+
+.button .save-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--button-shadow-color, #000000);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-shadow-color, #000000);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button:hover .button__text,
+.button:hover .save-button__text,
+.button:hover .dialog__button-text {
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+.button:hover .save-icon {
+  filter: brightness(0) invert(1);
+}
 /* Кнопка-обёртка для сердечка */
 .card__icon-button {
   background: none;
@@ -292,10 +354,6 @@
   width: 130px;
   height: 38px;
   padding: 9px 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 /* Текст внутри кнопки */
@@ -305,33 +363,11 @@
 
 /* ===== Кнопка "Сохранить на память" ===== */
 .card__save-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   width: 335px;
   height: 55px;
   margin: 55px auto 20px auto;
   padding: 15px 20px;
-  background: none;
-  border: 2px solid var(--border-color, #000000);
-  cursor: pointer;
   background-color: #ffffff;
-
-  /* Шрифт из макета */
-  font-family: var(--accent-font, "Press Start 2P", monospace);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 90%;
-  letter-spacing: 0%;
-  color: var(--text-color, #000000);
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
-  box-sizing: border-box;
   white-space: nowrap;
 }
 
@@ -418,115 +454,26 @@
 }
 
 .dialog__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 293px;
   height: 38px;
   padding: 9px 17px;
-  background: none;
-  border: 2px solid var(--border-color, #000000);
-  cursor: pointer;
-  font-family: var(--accent-font, "Press Start 2P", monospace);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  color: var(--text-color, #000000);
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
-  box-sizing: border-box;
 }
 
 .dialog__button-text {
   position: relative;
   z-index: 1;
+  text-transform: uppercase;
 }
 
 /* Фон затемнения с блюром */
 .dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Специальный модификатор для финальной карточки */
 .card__actions--final {
   border-bottom: 2px solid var(--border-color, #000000);
   padding-bottom: 0;
-}
-
-/* ===== ОБЩИЕ СТИЛИ ДЛЯ КНОПОК ===== */
-
-.card__like-button,
-.card__save-button,
-.dialog__button {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--button-bg-color, #ffffff);
-  color: #000000;
-  border: 2px solid var(--border-color, #000000);
-  cursor: pointer;
-  font-family: var(--accent-font, "Press Start 2P", monospace);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  transition: box-shadow 0.3s ease;
-  box-sizing: border-box;
-}
-
-/* Текст и иконки поверх псевдоэлемента — ОБЯЗАТЕЛЬНО с difference */
-.card__like-button .button__text,
-.card__save-button .save-button__text,
-.dialog__button .dialog__button-text {
-  position: relative;
-  z-index: 1;
-  mix-blend-mode: difference;
-  color: #ffffff;
-}
-
-/* ===== FOCUS ===== */
-.card__like-button:focus,
-.card__save-button:focus,
-.dialog__button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--button-shadow-color, #000000);
-}
-
-/* ===== ПСЕВДОЭЛЕМЕНТ ДЛЯ HOVER ===== */
-.card__like-button::before,
-.card__save-button::before,
-.dialog__button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--button-shadow-color, #000000);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 0;
-}
-
-.card__like-button:hover::before,
-.card__save-button:hover::before,
-.dialog__button:hover::before {
-  transform: translateX(0);
-}
-
-/* ===== HOVER — всё остаётся как есть ===== */
-.card__like-button:hover .button__text,
-.card__save-button:hover .save-button__text,
-.card__save-button:hover .save-icon,
-.dialog__button:hover .dialog__button-text {
-  color: #ffffff;
-  mix-blend-mode: difference;
-}
-
-.card__save-button:hover .save-icon {
-  filter: brightness(0) invert(1);
 }
 
 /* ===== СЕРДЕЧКО (ДЕСКТОП) ===== */
@@ -618,7 +565,7 @@
   /* ---------- КНОПКА "СОХРАНИТЬ НА ПАМЯТЬ" ---------- */
   .card__save-button {
     flex-direction: column;
-    width: var(--container-width);
+    width: calc(100% - 32px);
     max-width: 306px;
     height: 84px;
     margin: 50px auto 20px auto;
@@ -629,6 +576,7 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
+    margin: 0 auto;
 
     display: block;
   }
@@ -642,39 +590,29 @@
     line-height: 14px;
   }
 
-  /* ---------- КНОПКИ НА МОБИЛКЕ ---------- */
-
-  /* Отключаем псевдоэлементы с анимацией, которые работают на десктопе */
-  .card__like-button::before,
-  .card__save-button::before,
-  .dialog__button::before {
+  /* ===== КНОПКИ НА МОБИЛКЕ (ОБЩИЙ КЛАСС .button) ===== */
+  .button::before {
     display: none;
   }
 
-  /* Активное состояние (касание) */
-  .card__like-button:active,
-  .card__save-button:active,
-  .dialog__button:active {
+  .button:active {
     background-color: #000000;
     color: #ffffff;
   }
 
-  .card__like-button:active .button__text,
-  .card__save-button:active .save-button__text,
-  .card__save-button:active .save-icon,
-  .dialog__button:active .dialog__button-text {
+  .button:active .button__text,
+  .button:active .save-button__text,
+  .button:active .save-icon,
+  .button:active .dialog__button-text {
     color: #ffffff;
     mix-blend-mode: normal;
   }
 
-  .card__save-button:active .save-icon {
+  .button:active .save-icon {
     filter: brightness(0) invert(1);
   }
 
-  /* Фокус для доступности */
-  .card__like-button:focus,
-  .card__save-button:focus,
-  .dialog__button:focus {
+  .button:focus {
     outline: none;
     box-shadow: 2px 2px 0 0 var(--button-shadow-color, #000000);
   }
