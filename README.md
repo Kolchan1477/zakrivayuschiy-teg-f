@@ -6,6 +6,8 @@
 
 https://github.com/Kolchan1477/zakrivayuschiy-teg-f
 
+Your site is live at https://kolchan1477.github.io/zakrivayuschiy-teg-f/
+
 ---
 
 ## 📖 Описание проекта

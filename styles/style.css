@@ -45,7 +45,7 @@
 /* Шапка */
 .header {
   width: var(--container-width);
-  aspect-ratio: 700 / 368;
+  padding: 130px 20px;
 
   margin: 100px auto 98px auto;
   background-color: #ffffff;
@@ -96,6 +96,7 @@
 .card__header {
   width: 100%;
   max-width: 696px;
+  min-height: 30px;
   padding: 5px 10px;
   margin: 0;
   display: flex;
@@ -110,12 +111,11 @@
 .card__title {
   max-inline-size: 676px;
   width: 100%;
-
   font-family: var(--main-font);
   font-size: 18px;
   font-weight: 715;
   font-variation-settings: "wght" 715;
-  line-height: 1.3;
+  line-height: 1.2;
   color: #000000;
   padding: 0;
   margin: 0;
@@ -128,7 +128,7 @@
   position: relative;
   width: 100%;
 
-  margin: 0 0 20px;
+  margin: 0;
   padding: 0;
   overflow: hidden;
   border-top: 2px solid var(--border-color, #000000);
@@ -228,7 +228,7 @@
 /* Контент (текст, блок воспоминаний) */
 .card__content {
   max-inline-size: 696px;
-  padding: 5px 25px 0;
+  padding: 25px;
   display: flex;
 
   flex-direction: column;
@@ -258,7 +258,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 12px; /* расстояние между сердечком и кнопкой */
-  padding: 25px;
+  padding: 0 25px 25px 25px;
 
   margin-top: 0;
 }
@@ -274,23 +274,37 @@
   font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
+  letter-spacing: 0%;
   line-height: 100%;
   transition: box-shadow 0.3s ease;
   box-sizing: border-box;
 }
 
-.button .button__text,
-.button .save-button__text,
-.button .dialog__button-text {
+.button__text,
+.save-button__text,
+.dialog__button-text {
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
   color: #ffffff;
+  font-family: var(--accent-font, "Press Start 2P", monospace);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  letter-spacing: 0%;
+  vertical-align: middle;
 }
 
-.button .save-icon {
+.save-icon {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
   position: relative;
   z-index: 1;
+  /* ← цвет иконки */
+  display: block;
+  color: #ffffff; /* белая → difference → чёрная на белом фоне */
+  mix-blend-mode: difference;
 }
 
 .button:focus {
@@ -315,23 +329,13 @@
   transform: translateX(0);
 }
 
-.button:hover .button__text,
-.button:hover .save-button__text,
-.button:hover .dialog__button-text {
-  color: #ffffff;
-  mix-blend-mode: difference;
-}
-
-.button:hover .save-icon {
-  filter: brightness(0) invert(1);
-}
 /* Кнопка-обёртка для сердечка */
 .card__icon-button {
   background: none;
   border: none;
   cursor: pointer;
-  width: 27px;
-  height: 24px;
+  width: 39px;
+  height: 36px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -341,12 +345,10 @@
 
 /* Сердечко */
 .like-icon {
-  width: 27px;
-  height: 24px;
+  width: 39px;
+  height: 36px;
   color: currentColor;
   display: block;
-  transform: scale(1.5);
-  transform-origin: top left;
 }
 
 /* Кнопка Like */
@@ -363,24 +365,23 @@
 
 /* ===== Кнопка "Сохранить на память" ===== */
 .card__save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 335px;
   height: 55px;
   margin: 55px auto 20px auto;
   padding: 15px 20px;
   background-color: #ffffff;
   white-space: nowrap;
-}
-
-.save-icon {
-  width: 21px;
-  height: 21px;
-  flex-shrink: 0;
-  color: currentColor;
+  box-sizing: border-box;
 }
 
 .save-button__text {
   display: inline-block;
   white-space: nowrap;
+  max-width: 266px;
 }
 
 /* ===== ДИАЛОГОВОЕ ОКНО ===== */
@@ -444,7 +445,7 @@
   font-family: var(--accent-font, "Press Start 2P", monospace);
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 150%;
   text-transform: uppercase;
   color: var(--text-color, #000000);
   margin: 0;
@@ -470,29 +471,12 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Специальный модификатор для финальной карточки */
-.card__actions--final {
-  border-bottom: 2px solid var(--border-color, #000000);
-  padding-bottom: 0;
-}
-
 /* ===== СЕРДЕЧКО (ДЕСКТОП) ===== */
-
-/* Ховер — увеличение */
-.card__icon-button:hover .like-icon {
-  transform: scale(1.2);
-}
-
-/* Лайк поставлен */
-.like-icon.is-liked {
-  transform: scale(1.3);
-  color: #ff0000;
-}
 
 /* Фокус для доступности */
 .card__icon-button:focus {
   outline: 2px solid var(--border-color, #000000);
-  outline-offset: 2px;
+  outline-offset: 0;
 }
 
 /* ===== МОБИЛЬНАЯ ВЕРСИЯ (375px) ===== */
@@ -510,7 +494,7 @@
   .header {
     width: 100%;
     max-width: 375px;
-    aspect-ratio: 375 / 327;
+    padding: 120px 16px;
   }
 
   .header__logo {
@@ -518,18 +502,9 @@
   }
 
   /* ---------- КАРТОЧКИ ---------- */
-  .card {
-    border-radius: 0;
-  }
 
   .card__header {
-    padding: 0 10px;
-  }
-
-  .card__title {
-    padding: 4px 0;
-
-    line-height: 1.2;
+    padding: 4px 10px;
   }
 
   /* ---------- ИЗОБРАЖЕНИЕ ---------- */
@@ -537,29 +512,13 @@
     margin: 0;
   }
 
-  .card__heading-svg {
-    height: 100%;
-  }
-
-  .card__content {
-    padding: 25px 25px 25px;
-    box-sizing: border-box;
-  }
-
   .card__text {
-    line-height: 1.17; /* 21px / 18px ≈ 1.17 */
     max-inline-size: 321px;
   }
 
   /* ---------- ДЕЙСТВИЯ (ЛАЙК) ---------- */
   .card__actions {
-    padding: 0;
-    gap: 12px;
-    margin: 0 25px 25px 0;
-  }
-
-  .card__like-button {
-    padding: 6px 12px;
+    padding: 0 25px 25px;
   }
 
   /* ---------- КНОПКА "СОХРАНИТЬ НА ПАМЯТЬ" ---------- */
@@ -581,56 +540,11 @@
     display: block;
   }
   .save-button__text {
-    display: inline-block;
-    white-space: nowrap;
     font-size: 14px;
     width: 266px;
-    height: 14px;
+
     text-align: center;
     line-height: 14px;
-  }
-
-  /* ===== КНОПКИ НА МОБИЛКЕ (ОБЩИЙ КЛАСС .button) ===== */
-  .button::before {
-    display: none;
-  }
-
-  .button:active {
-    background-color: #000000;
-    color: #ffffff;
-  }
-
-  .button:active .button__text,
-  .button:active .save-button__text,
-  .button:active .save-icon,
-  .button:active .dialog__button-text {
-    color: #ffffff;
-    mix-blend-mode: normal;
-  }
-
-  .button:active .save-icon {
-    filter: brightness(0) invert(1);
-  }
-
-  .button:focus {
-    outline: none;
-    box-shadow: 2px 2px 0 0 var(--button-shadow-color, #000000);
-  }
-
-  .card__icon-button:hover .like-icon {
-    animation: none;
-  }
-
-  /* Активное состояние — уменьшение при касании */
-  .card__icon-button:active .like-icon {
-    transform: scale(0.85);
-    transition: transform 0.1s ease;
-  }
-
-  /* Фокус для доступности */
-  .card__icon-button:focus {
-    outline: 2px solid var(--border-color, #000000);
-    outline-offset: 2px;
   }
 
   /* Лайк поставлен — анимация работает */
@@ -650,13 +564,8 @@
   }
 
   .dialog__content {
-    width: 100%;
     height: auto;
     gap: 16px;
-  }
-
-  .dialog__title {
-    font-size: 12px;
   }
 
   .dialog__button {
