@@ -96,7 +96,6 @@
 .card__header {
   width: 100%;
   max-width: 696px;
-  min-height: 30px;
   padding: 5px 10px;
   margin: 0;
   display: flex;
